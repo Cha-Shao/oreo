@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 一个从上面掉下来触底之后弹一下的动画，高度是6rem */
+@keyframes bounce {
+  0% {
+    transform: translateY(-6rem);
+  }
+  33% {
+    transform: translateY(0);
+  }
+  66% {
+    transform: translateY(-1rem);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.fall {
+  animation: bounce 0.2s ease-out;
+}
