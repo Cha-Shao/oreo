@@ -66,30 +66,25 @@ function App() {
             </button>
           </div>
         </section>
-        <section className='col-span-2 bg-white p-6 rounded-2xl mb-[4.5rem]'>
-          <h1 className='text-4xl font-bold'>
-            这是你的
-            {materials.map(material => material === Material.O ? '奥' : '利').join('') === '利利'
-              ? '丽丽'
-              : materials.map(material => material === Material.O ? '奥' : '利').join('') === '利奥'.repeat(6) ? '花京院'
-                : materials.map(material => material === Material.O ? '奥' : '利').join('')}
-          </h1>
-          <div ref={resultRef}>
-            {materials.map(material => material === Material.O ? '奥' : '利').join('') === '利利'
-              ? <img src="/rere.png" alt="" className='w-full rounded-lg mt-6' />
-              : materials.map(material => material === Material.O ? '奥' : '利').join('') === '利奥'.repeat(6) ? <img src="/reoreoreoreoreoreo.png" alt="" className='w-full rounded-lg mt-6' />
-                : (
-                  <ul
-                    className='flex flex-col-reverse'
-                    style={{
-                      height: '100%',
-                      ...(materials.length && {
-                        paddingTop: 'calc(1.5rem + 50%)',
-                      })
-                    }}>
-                    {materials.map((material, i) => {
-                      return material === Material.O
-                        ? (
+        {!!materials.length && (
+          <section className='col-span-2 bg-white p-6 rounded-2xl mb-2'>
+            <h1 className='text-4xl font-bold'>
+              这是你的
+              {materials.map(material => material === Material.O ? '奥' : '利').join('') === '利利'
+                ? '丽丽'
+                : materials.map(material => material === Material.O ? '奥' : '利').join('') === '利奥'.repeat(6) ? '花京院'
+                  : materials.map(material => material === Material.O ? '奥' : '利').join('')}
+            </h1>
+            <div ref={resultRef}>
+              {materials.map(material => material === Material.O ? '奥' : '利').join('') === '利利'
+                ? <img src="/rere.png" alt="" className='w-full rounded-lg mt-6' />
+                : materials.map(material => material === Material.O ? '奥' : '利').join('') === '利奥'.repeat(6) ? <img src="/reoreoreoreoreoreo.png" alt="" className='w-full rounded-lg mt-6' />
+                  : (
+                    <ul
+                      className='flex flex-col-reverse h-full pt-[calc(1.5rem+50%)]'
+                    >
+                      {materials.map((material, i) => {
+                        return material === Material.O ? (
                           <li
                             key={i}
                             style={{
@@ -110,11 +105,20 @@ function App() {
                             <Re />
                           </li>
                         )
-                    })}
-                  </ul>
-                )}
-          </div>
-        </section>
+                      })}
+                    </ul>
+                  )}
+            </div>
+          </section>
+        )}
+        <footer className='mb-[4.5rem] text-center text-sm text-gray-500'>
+          <p>本作品仅供娱乐，不作他用</p>
+          <a href="https://github.com/Cha-Shao/oreo" className='flex justify-center items-center'>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#6a7280" viewBox="0 0 256 256"><path d="M212.62,75.17A63.7,63.7,0,0,0,206.39,26,12,12,0,0,0,196,20a63.71,63.71,0,0,0-50,24H126A63.71,63.71,0,0,0,76,20a12,12,0,0,0-10.39,6,63.7,63.7,0,0,0-6.23,49.17A61.5,61.5,0,0,0,52,104v8a60.1,60.1,0,0,0,45.76,58.28A43.66,43.66,0,0,0,92,192v4H76a20,20,0,0,1-20-20,44.05,44.05,0,0,0-44-44,12,12,0,0,0,0,24,20,20,0,0,1,20,20,44.05,44.05,0,0,0,44,44H92v12a12,12,0,0,0,24,0V192a20,20,0,0,1,40,0v40a12,12,0,0,0,24,0V192a43.66,43.66,0,0,0-5.76-21.72A60.1,60.1,0,0,0,220,112v-8A61.5,61.5,0,0,0,212.62,75.17ZM196,112a36,36,0,0,1-36,36H112a36,36,0,0,1-36-36v-8a37.87,37.87,0,0,1,6.13-20.12,11.65,11.65,0,0,0,1.58-11.49,39.9,39.9,0,0,1-.4-27.72,39.87,39.87,0,0,1,26.41,17.8A12,12,0,0,0,119.82,68h32.35a12,12,0,0,0,10.11-5.53,39.84,39.84,0,0,1,26.41-17.8,39.9,39.9,0,0,1-.4,27.72,12,12,0,0,0,1.61,11.53A37.85,37.85,0,0,1,196,104Z"></path></svg>
+            Source code
+          </a>
+          <a href="https://oreo.ddiu.io/">灵感：ddiu</a>
+        </footer>
         <div className="fixed p-2 bottom-0 left-0 w-screen z-[2147483647]">
           <button
             className='bg-[#005cc5] text-white text-xl font-bold rounded-full py-4 w-full'
